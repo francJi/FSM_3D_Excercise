@@ -737,7 +737,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522784253}
   m_LocalRotation: {x: -0, y: -0.55315655, z: -0, w: 0.8330773}
-  m_LocalPosition: {x: -15.492828, y: -2.786705, z: 17.585701}
+  m_LocalPosition: {x: -15.492828, y: 2.5, z: 17.585701}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1288,7 +1288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634568220}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -111.73283, y: -5.286705, z: -89.00675}
+  m_LocalPosition: {x: -111.73283, y: 0, z: -89.00675}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1899,7 +1899,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244213729}
   m_LocalRotation: {x: -0, y: 0.3300233, z: -0, w: 0.9439728}
-  m_LocalPosition: {x: 4.6118927, y: -2.786705, z: 10.211464}
+  m_LocalPosition: {x: 4.6118927, y: 2.5, z: 10.211464}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2717,6 +2717,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1259594393}
+  - component: {fileID: 1259594394}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2740,6 +2741,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1259594394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259594392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5314bf16ce99b4aa9a91113021caf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <AnimationData>k__BackingField:
+    groundParameterName: '@Ground'
+    idleParameterName: Idle
+    walkParameterName: Walk
+    runParameterName: Run
+    airParameterName: '@Air'
+    jumpParameterName: Jump
+    fallParameterName: Fall
+    attackParameterName: '@Attack'
+    comboAttackParameterName: ComboAttack
 --- !u!1 &1384446535
 GameObject:
   m_ObjectHideFlags: 0
@@ -2769,7 +2792,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384446535}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.8487167, y: -4.786705, z: 18.5102}
+  m_LocalPosition: {x: -2.8487167, y: 0.5, z: 18.5102}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

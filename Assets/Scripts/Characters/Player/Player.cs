@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // 애니메이션 데이터를 Header에 연결
+    [field: Header("Animations")]
+    [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
+
+    public Rigidbody Rigidbody { get; private set; }
+    public Animator Animator { get; private set; }
+    public PlayerInput Input { get; private set; }
+
+    public CharacterController Controller { get; private set; }
+
+    private void Awake()
     {
-        
+        AnimationData.Initialize();
+
+        Rigidbody = GetComponent<Rigidbody>();
+        Animator = GetComponent<Animator>();
+        Input = GetComponent<PlayerInput>();
+        Controller = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    // 커서 lock 추가
+    private void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
