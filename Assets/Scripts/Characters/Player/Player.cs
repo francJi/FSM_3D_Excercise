@@ -15,8 +15,11 @@ public class Player : MonoBehaviour
     public Animator Animator { get; private set; }
     public PlayerInput Input { get; private set; }
     public CharacterController Controller { get; private set; }
+    public ForceReceiver ForceReceiver { get; private set; }
+
 
     private PlayerStateMachine stateMachine; // 이 stateMachine을 통해 행동을 관리
+
 
     private void Awake()
     {
@@ -26,6 +29,7 @@ public class Player : MonoBehaviour
         Animator = GetComponentInChildren<Animator>();
         Input = GetComponent<PlayerInput>();
         Controller = GetComponent<CharacterController>();
+        ForceReceiver = GetComponentInChildren<ForceReceiver>();
 
         stateMachine = new PlayerStateMachine(this);
     }
