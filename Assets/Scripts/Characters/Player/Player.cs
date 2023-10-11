@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [field: Header("References")]
+    [field: SerializeField] public PlayerSO Data { get; private set; }
+
     // 애니메이션 데이터를 Header에 연결
     [field: Header("Animations")]
     [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
@@ -11,22 +14,37 @@ public class Player : MonoBehaviour
     public Rigidbody Rigidbody { get; private set; }
     public Animator Animator { get; private set; }
     public PlayerInput Input { get; private set; }
-
     public CharacterController Controller { get; private set; }
+
+    private PlayerStateMachine stateMachine; // 이 stateMachine을 통해 행동을 관리
 
     private void Awake()
     {
         AnimationData.Initialize();
 
         Rigidbody = GetComponent<Rigidbody>();
-        Animator = GetComponent<Animator>();
+        Animator = GetComponentInChildren<Animator>();
         Input = GetComponent<PlayerInput>();
         Controller = GetComponent<CharacterController>();
+
+        stateMachine = new PlayerStateMachine(this);
     }
 
     // 커서 lock 추가
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        stateMachine.ChangeState(stateMachine.idleState);
+    }
+
+    private void Update()
+    {
+        stateMachine.HandleInput();
+        stateMachine.Update();
+    }
+
+    private void FixedUpdate()
+    {
+        stateMachine.PhysicsUpdate();
     }
 }
