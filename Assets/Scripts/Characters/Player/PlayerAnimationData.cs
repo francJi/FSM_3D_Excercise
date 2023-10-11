@@ -28,7 +28,7 @@ public class PlayerAnimationData  // 컴포넌트로 쓸 것이 아니기 때문에 MonoBehavi
 
     public int AirParameterHash { get; private set; }
     public int JumpParameterHash { get; private set; }
-    public int fallParameterHash { get; private set; }
+    public int FallParameterHash { get; private set; }
 
     public int AttackParameterHash { get; private set; }
     public int ComboAttackParameterHash { get; private set; }
@@ -42,7 +42,7 @@ public class PlayerAnimationData  // 컴포넌트로 쓸 것이 아니기 때문에 MonoBehavi
 
         AirParameterHash = Animator.StringToHash(airParameterName);
         JumpParameterHash = Animator.StringToHash(jumpParameterName);
-        fallParameterHash = Animator.StringToHash(fallParameterName);
+        FallParameterHash = Animator.StringToHash(fallParameterName);
 
         AttackParameterHash = Animator.StringToHash(attackParameterName);
         ComboAttackParameterHash = Animator.StringToHash(comboAttackParameterName);
