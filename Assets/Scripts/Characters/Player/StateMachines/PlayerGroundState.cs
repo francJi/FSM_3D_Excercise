@@ -31,6 +31,14 @@ public class PlayerGroundState : PlayerBaseState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+        // 현재 상태가 땅이 아닐 때(isGrounded false & y축 속도가 중력의 속도보다 클 때)
+        // => FallState로 전환하는 기능 추가
+        if (!stateMachine.Player.Controller.isGrounded
+            && stateMachine.Player.Controller.velocity.y < Physics.gravity.y * Time.fixedDeltaTime)
+        {
+            stateMachine.ChangeState(stateMachine.FallState);
+            return;
+        }
     }
 
     protected override void OnMovementCanceled(InputAction.CallbackContext context)
