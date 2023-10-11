@@ -26,6 +26,12 @@ public class PlayerGroundState : PlayerBaseState
     public override void Update()
     {
         base.Update();
+
+        if (stateMachine.IsAttacking)
+        {
+            OnAttack();
+            return;
+        }
     }
 
     public override void PhysicsUpdate()
@@ -64,5 +70,10 @@ public class PlayerGroundState : PlayerBaseState
     protected override void OnJumpStarted(InputAction.CallbackContext context)
     {
         stateMachine.ChangeState(stateMachine.JumpState); // 점프를 하면, 점프 스테이트로 넘김. 이후, 점프 스테이트에서 알아서 처리할 것임.
+    }
+
+    protected virtual void OnAttack()
+    {
+        stateMachine.ChangeState(stateMachine.ComboAttackState);
     }
 }

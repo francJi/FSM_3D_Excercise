@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
         Animator = GetComponentInChildren<Animator>();
         Input = GetComponent<PlayerInput>();
         Controller = GetComponent<CharacterController>();
-        ForceReceiver = GetComponentInChildren<ForceReceiver>();
+        ForceReceiver = GetComponent<ForceReceiver>();
 
         stateMachine = new PlayerStateMachine(this);
     }
