@@ -26,16 +26,20 @@ public class PlayerIdleState : PlayerGroundState
 
     public override void HandleInput()
     {
-        
+        //base state에 있는 HandleInput을 써야하는데 . 여기가 비어있는데 오버라이드를 받아서 동작을 하지 않음.
+        // 오버라이드는 필요할 때만 사용
+        base.HandleInput();
     }
 
-    public override void PhysicsUpdate()
-    {
-        
-    }
 
     public override void Update()
     {
         base.Update();
+
+        if (stateMachine.MovementInput != Vector2.zero) // 이동에관한 Input을 입력받았다면
+        {
+            OnMove(); // 이동처리 // OnMove에서 State를 변환시킴.
+            return;
+        }
     }
 }

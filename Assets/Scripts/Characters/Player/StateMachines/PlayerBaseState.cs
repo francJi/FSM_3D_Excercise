@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 // 구성해 나가면서 , 필요한 것들?을 집어넣을 예정
@@ -46,18 +47,34 @@ public class PlayerBaseState : IState
     // input action 에 대한 callback
     // 각 상황별로 state가 들어갔을 때, 공용으로 사용되는 것에 대해서 callback을 달아둠.
     // 그 state에 들어갔을 때, 필요한 메서드를 연결하거나 해지할 수 있게됨.
+    // 키 입력 처리
     protected virtual void AddInputActionsCallbacks()
     {
+        PlayerInput input = stateMachine.Player.Input;
+        input.PlayerActions.Movement.canceled += OnMovementCanceled;
+        input.PlayerActions.Run.started += OnRunStarted;
 
     }
 
     protected virtual void RemoveInputActionsCallbacks()
     {
+        PlayerInput input = stateMachine.Player.Input;
+        input.PlayerActions.Movement.canceled -= OnMovementCanceled;
+        input.PlayerActions.Run.started -= OnRunStarted;
+    }
+
+    protected virtual void OnMovementCanceled(InputAction.CallbackContext context)
+    {
 
     }
 
+    protected virtual void OnRunStarted(InputAction.CallbackContext context)
+    {
+
+    }
     private void ReadMovementInput()
     {
+        // 여기서 Input을 처리해야되는데 안들어옴.
         stateMachine.MovementInput = stateMachine.Player.Input.PlayerActions.Movement.ReadValue<Vector2>();
     }
 

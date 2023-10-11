@@ -6,7 +6,11 @@ public class PlayerStateMachine : StateMachine
 {
     public Player Player { get; }
 
-    public PlayerIdleState idleState { get; }
+    // 상태가 추가될 때마다, 여기서 추가해줘야함.
+    public PlayerIdleState IdleState { get; }
+    public PlayerWalkState WalkState { get; }
+    public PlayerRunState RunState { get; }
+
 
     public Vector2 MovementInput { get; set; }
     public float MovementSpeed { get; private set; }
@@ -20,7 +24,10 @@ public class PlayerStateMachine : StateMachine
     public PlayerStateMachine(Player player)
     {
         this.Player = player;
-        idleState = new PlayerIdleState(this);
+
+        IdleState = new PlayerIdleState(this);
+        WalkState = new PlayerWalkState(this);
+        RunState = new PlayerRunState(this);
 
         MainCameraTransform = Camera.main.transform;
 
