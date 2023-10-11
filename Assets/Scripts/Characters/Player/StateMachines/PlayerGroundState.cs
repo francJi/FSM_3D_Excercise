@@ -52,4 +52,9 @@ public class PlayerGroundState : PlayerBaseState
     {
         stateMachine.ChangeState(stateMachine.WalkState);
     }
+
+    protected override void OnJumpStarted(InputAction.CallbackContext context)
+    {
+        stateMachine.ChangeState(stateMachine.JumpState); // 점프를 하면, 점프 스테이트로 넘김. 이후, 점프 스테이트에서 알아서 처리할 것임.
+    }
 }
