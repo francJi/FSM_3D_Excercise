@@ -18,6 +18,7 @@ public class PlayerAnimationData  // 컴포넌트로 쓸 것이 아니기 때문에 MonoBehavi
     [SerializeField] private string fallParameterName = "Fall";
 
     [SerializeField] private string attackParameterName = "@Attack";
+    [SerializeField] private string baseAttackParameterName = "@BaseAttack";
     [SerializeField] private string comboAttackParameterName = "ComboAttack";
 
 
@@ -32,6 +33,7 @@ public class PlayerAnimationData  // 컴포넌트로 쓸 것이 아니기 때문에 MonoBehavi
 
     public int AttackParameterHash { get; private set; }
     public int ComboAttackParameterHash { get; private set; }
+    public int BaseAttackParameterHash { get; private set; }
 
     public void Initialize()
     {
@@ -46,5 +48,6 @@ public class PlayerAnimationData  // 컴포넌트로 쓸 것이 아니기 때문에 MonoBehavi
 
         AttackParameterHash = Animator.StringToHash(attackParameterName);
         ComboAttackParameterHash = Animator.StringToHash(comboAttackParameterName);
+        BaseAttackParameterHash = Animator.StringToHash(baseAttackParameterName);
     }
 }
