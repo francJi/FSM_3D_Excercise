@@ -91,7 +91,7 @@ public class EnemyBaseState : IState
         return movementSpeed;
     }
 
-    protected float GetNormalizedTime(Animator animator, string tag)
+    protected float GetNormalizedTime(Animator animator, string tag) // 애니메이터에서 애니메이션 클립의 태그를 말하는 것
     {
         AnimatorStateInfo currentInfo = animator.GetCurrentAnimatorStateInfo(0);
         AnimatorStateInfo nextInfo = animator.GetNextAnimatorStateInfo(0);
